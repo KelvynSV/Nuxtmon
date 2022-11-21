@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import _ from 'lodash';
+
 export default {
    /* async fetch() {
         this.pokeForms = await fetch('https://pokeapi.co/api/v2/pokemon-form?limit=100.').then((res) => res.json());
@@ -23,37 +25,41 @@ export default {
     },
 
     async mounted(){
-        window.onscroll = () => {
+        window.onscroll = _.debounce(() => {
             if (document.documentElement.scrollTop + window.innerHeight >= document.documentElement.offsetHeight)
                 this.loadPokemonsInList(28);
-        }
+        }, 500)
     },
 
     data() {
         return {
             pokemons: [],
-            loadedPokemons: 0
+            loadedPokemons: 0,
+            loadingPokemons: false
         }
     },
 
     methods: {
-        async loadPokemonsInList(quantidade) {
-            await new Promise(resolve => setTimeout(resolve, 2000));
+        async loadPokemonsInList (quantidade) {
+            if (this.loadingPokemons) return;
+            this.loadingPokemons = true;
 
             var response = await fetch('https://pokeapi.co/api/v2/pokemon-form?limit='+quantidade+'&offset='+this.loadedPokemons);
             this.loadedPokemons += quantidade;
 
             var pokemons = await response.json();
-            if (pokemons.results.lenght < quantidade) this.loadPokemonsInList = null;
+            if (pokemons.results.lenght == 0) this.loadPokemonsInList = null;
 
             for(var pokemon of pokemons.results) {
-                var detailResponse = await fetch('https://pokeapi.co/api/v2/pokemon-form/'+pokemon.name);
+                var detailResponse = await fetch(pokemon.url);
 
                 if (detailResponse.ok) {
                     var detailPokemon = await detailResponse.json();
                     this.pokemons.push(detailPokemon);
                 }
             }
+
+            this.loadingPokemons = false;
         }
     }
 }

@@ -5,8 +5,8 @@
 <script lang="ts">
 
 import Vue from 'vue'
-import '~/assets/global.css'
 import Pokemons from '~/components/PokemonsList.vue'
+import '~/assets/global.css'
 
 export default Vue.extend({
   components: { Pokemons },
