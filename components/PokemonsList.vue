@@ -10,16 +10,6 @@
 import _ from 'lodash';
 
 export default {
-   /* async fetch() {
-        this.pokeForms = await fetch('https://pokeapi.co/api/v2/pokemon-form?limit=100.').then((res) => res.json());
-
-        for (let index = 0; index < this.pokeForms.results.length; index++) {
-            const element = this.pokeForms.results[index];
-            const temppoke = await fetch('https://pokeapi.co/api/v2/pokemon-form/'+element.name).then((res) => res.ok? res.json(): null);
-            if (temppoke) this.pokemons.push(temppoke);
-        }
-    },
-*/
     async beforeMount(){
         this.loadPokemonsInList(48);
     },
