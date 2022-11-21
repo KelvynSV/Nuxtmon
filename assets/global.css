@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('~assets/fonts/Gilroy-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('~assets/fonts/Gilroy.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.nm-card {
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+}
+
+.title {
+    font-family: "GilroyBold";
+    font-size: 28px;
+    text-transform: capitalize;
+    color: #363553;
+}
+
+body{
+    font-family: "Roboto";
+    color: #404040;
+}
