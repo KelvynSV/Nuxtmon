@@ -16,7 +16,7 @@ export default {
 
     async mounted(){
         window.onscroll = _.debounce(() => {
-            if (document.documentElement.scrollTop + window.innerHeight >= document.documentElement.offsetHeight)
+            if (document.documentElement.scrollTop + window.innerHeight - 250 >= document.documentElement.offsetHeight)
                 this.loadPokemonsInList(28);
         }, 500)
     },
