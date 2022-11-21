@@ -81,7 +81,7 @@ typings/
 sw.*
 
 #static distribuition
-.dest
+.dist
 
 # macOS
 .DS_Store
