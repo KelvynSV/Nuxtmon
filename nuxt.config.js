@@ -1,5 +1,8 @@
 export default {
-target: 'static',
+  target: 'static',
+  router: {
+    base: '/Nuxtmon/'
+  },
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
