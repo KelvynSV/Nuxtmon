@@ -80,6 +80,9 @@ typings/
 # Service worker
 sw.*
 
+#static distribuition
+.dest
+
 # macOS
 .DS_Store
 
